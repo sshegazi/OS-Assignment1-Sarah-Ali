@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Sarah Mohammed Osman Ali Hegazi] |
+| **Student ID** | [445052828] |
+| **University Email** | [445052828@std.psau.edu.sa] |
+| **GitHub Username** | [sshegazi] |
+| **Repository Link** | [https://github.com/sshegazi/OS-Assignment1-Sarah-Ali] |
  
 ---
 
@@ -129,16 +129,23 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 2, 2026, 8:20 PM]
+**What I did**: Forked the project repository, set up my local environment, and updated my student ID in the code.
 
-**Details**:
+**Details**: 
+- Signed into my GitHub account created with my university email.
+- Forked the starter repository from makopt/OS-Assignment1-Starter-481 and renamed it according to the assignment instructions.
+- Cloned the repository locally and opened the project folder in VS Code.
+- Updated line 150 in SchedulerSimulation.java with my actual student ID (441XXXXXX).
+- Compiled and tested the program in the terminal to verify it runs properly.
+- Committed the file changes and pushed everything up to GitHub.
 
-**Challenges**:
 
-**Solution**:
+**Challenges**: Linking my GitHub account inside VS Code kept throwing authorization errors stating that the email was incorrect or invalid when trying to sign in.
 
-**Time spent**:
+**Solution**: I opened my web browser, logged directly into my GitHub account, and checked the box to stay signed in. After that, I re-triggered the VS Code authorization link so it opened in the same browser session, which automatically recognized my account and authorized VS Code without errors.
+
+**Time spent**: 50 minutes`
 
 ---
 
