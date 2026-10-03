@@ -145,20 +145,23 @@
 
 **Solution**: I opened my web browser, logged directly into my GitHub account, and checked the box to stay signed in. After that, I re-triggered the VS Code authorization link so it opened in the same browser session, which automatically recognized my account and authorized VS Code without errors.
 
-**Time spent**: 50 minutes`
+**Time spent**: 50 minutes
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 3, 2026, 7:15 PM]
+**What I did**: Implemented Feature 1: Process Priority.
 
 **Details**:
+I added a priority field to the Process class and updated the constructor so each process stores its own priority. A random priority between 1 and 10 is generated when each process is created. I also added a getter method for the priority and updated the ready queue message so the priority is displayed whenever a process enters the queue. The priority is only displayed and tracked, so the original Round-Robin FIFO scheduling order remains unchanged.
 
 **Challenges**:
+I needed to make sure that adding priority did not accidentally change how the scheduler chooses which process runs next.
 
 **Solution**:
+I kept the existing LinkedList ready queue and did not use the priority value for sorting or scheduling. I tested the program and confirmed that processes were still executed in FIFO order while their priorities were displayed correctly.
 
-**Time spent**:
+**Time spent**: 1 hour
 
 ---
 
