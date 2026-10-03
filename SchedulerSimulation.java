@@ -29,14 +29,16 @@ class Process implements Runnable {
     private int burstTime; // Total time the process requires to complete (in milliseconds)
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
-
-    // Constructor to initialize the process with name, burst time, and time quantum
-    public Process(String name, int burstTime, int timeQuantum) {
-        this.name = name;
-        this.burstTime = burstTime;
-        this.timeQuantum = timeQuantum;
-        this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
-    }
+    private int priority; // Feature 1: Priority from 1 to 10, where 10 is highest
+    
+    // Constructor to initialize the process with name, burst time, time quantum, and priority
+public Process(String name, int burstTime, int timeQuantum, int priority) {
+    this.name = name;
+    this.burstTime = burstTime;
+    this.timeQuantum = timeQuantum;
+    this.priority = priority; // Feature 1: Store the process priority
+    this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
+}
 
     // This method will be called when the thread for this process is started
     @Override
@@ -136,6 +138,11 @@ class Process implements Runnable {
     public int getRemainingTime() {
         return remainingTime;
     }
+    
+    // Feature 1: Getter method for process priority
+    public int getPriority() {
+    return priority;
+    }
 
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
@@ -196,8 +203,12 @@ public class SchedulerSimulation {
             // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
             
-            // Create a new process object with a unique name, burst time, and the defined time quantum
-            Process process = new Process("P" + i, burstTime, timeQuantum);
+            
+         // Feature 1: Generate a random process priority between 1 and 10
+        int priority = random.nextInt(10) + 1;
+
+        // Create a new process object with a unique name, burst time, time quantum, and priority
+        Process process = new Process("P" + i, burstTime, timeQuantum, priority);
             
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
@@ -290,10 +301,10 @@ public class SchedulerSimulation {
         // Map the thread to the process, so we can track the process associated with each thread
         processMap.put(thread, process);
         
-        // Print a message indicating the process has entered the ready queue
-        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
-                          Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
-                          " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
-                          Colors.RESET);
+        // Feature 1: Display the priority without changing the FIFO scheduling order
+        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() +
+                   Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET +
+                   " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" +
+                   Colors.RESET + " │ Priority: " + Colors.GREEN + process.getPriority() + Colors.RESET);
     }
 }
