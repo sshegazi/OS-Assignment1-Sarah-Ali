@@ -165,16 +165,16 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 4, 2026, 3:35 PM]
+**What I did**: Implemented Feature 2: Static Context Switch Counter.
 
-**Details**:
+**Details**: I added a static context switch counter to the SchedulerSimulation class. The counter starts at zero and increases each time the scheduler starts the next process thread. After all processes have finished executing, the program displays the total number of context switches. In my test run, the scheduler recorded 31 context switches.
 
-**Challenges**:
+**Challenges**: I had to decide where the counter should be increased so that it represented each scheduled process run without counting unrelated operations.
 
-**Solution**:
+**Solution**: I incremented the counter immediately before `currentThread.start()`. This means the counter increases only when the scheduler gives a process its turn to run. I tested the program and confirmed that it still followed the same Round-Robin scheduling behavior and displayed the final total correctly.
 
-**Time spent**:
+**Time spent**: 30 minutes
 
 ---
 
