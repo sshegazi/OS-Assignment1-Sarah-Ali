@@ -151,6 +151,10 @@ public Process(String name, int burstTime, int timeQuantum, int priority) {
 }
 
 public class SchedulerSimulation {
+
+    // Feature 2: Counts how many times a scheduled process starts running
+    private static int contextSwitchCount = 0;
+
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
@@ -248,6 +252,8 @@ public class SchedulerSimulation {
             System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
             
             // Start the thread, which will run the process for one time quantum
+            // Feature 2: Count each time the CPU starts running the next scheduled process
+            contextSwitchCount++;
             currentThread.start();
             
             try {
@@ -275,7 +281,10 @@ public class SchedulerSimulation {
                 }
             }
         }
-        
+          // Feature 2: Display the total number of context switches after all processes finish
+        System.out.println(Colors.BRIGHT_CYAN + "  Total context switches: " +
+                           contextSwitchCount + Colors.RESET + "\n");
+                           
         // End of the scheduler simulation
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╔════════════════════════════════════════════════════════════════════════════════╗" + 
