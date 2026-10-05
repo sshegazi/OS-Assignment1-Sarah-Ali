@@ -178,16 +178,16 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 5, 2026, 10:00 PM]
+**What I did**: Implemented Feature 3: Waiting Time and Turnaround Time Tracking.
 
-**Details**:
+**Details**: I added timing fields to each Process to record its creation time, total waiting time, and the time it most recently entered the ready queue. I used `System.currentTimeMillis()` to measure how long each process waits before receiving CPU time. Since a process can return to the ready queue several times during Round-Robin scheduling, the waiting periods are added together. I also stored all created processes so the program can display a final timing summary after scheduling finishes. The summary shows each process name, burst time, waiting time, and turnaround time.
 
-**Challenges**:
+**Challenges**: The main challenge was tracking waiting time correctly when a process is placed back into the ready queue multiple times instead of measuring only its first waiting period.
 
-**Solution**:
+**Solution**: I recorded the time whenever a process entered the ready queue and calculated the elapsed waiting time immediately before that process started running. Each waiting period is added to the process's total waiting time. I tested the final output and confirmed that turnaround time is calculated as waiting time plus burst time for every process.
 
-**Time spent**:
+**Time spent**: 2 hours and 40 minutes
 
 ---
 
