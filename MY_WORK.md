@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Sarah Mohammed Osman Ali Hegazi] |
-| **Student ID** | [445052828] |
-| **University Email** | [445052828@std.psau.edu.sa] |
-| **GitHub Username** | [sshegazi] |
-| **Repository Link** | [https://github.com/sshegazi/OS-Assignment1-Sarah-Ali] |
+| **Full Name** | Sarah Mohammed Osman Ali Hegazi |
+| **Student ID** | 445052828 |
+| **University Email** | 445052828@std.psau.edu.sa |
+| **GitHub Username** | sshegazi |
+| **Repository Link** | https://github.com/sshegazi/OS-Assignment1-Sarah-Ali |
  
 ---
 
@@ -136,7 +136,7 @@
 - Signed into my GitHub account created with my university email.
 - Forked the starter repository from makopt/OS-Assignment1-Starter-481 and renamed it according to the assignment instructions.
 - Cloned the repository locally and opened the project folder in VS Code.
-- Updated line 150 in SchedulerSimulation.java with my actual student ID (441XXXXXX).
+- Updated line 150 in SchedulerSimulation.java with my actual student ID (445052828).
 - Compiled and tested the program in the terminal to verify it runs properly.
 - Committed the file changes and pushed everything up to GitHub.
 
@@ -191,16 +191,16 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 6, 2026, 9:20 PM]
+**What I did**: Completed final testing and review of all implemented features.
 
-**Details**:
+**Details**: I ran the complete scheduler simulation to test all three features together. I confirmed that process priorities were displayed correctly without changing the original FIFO Round-Robin order. The context switch counter recorded 31 context switches in the test run. I also checked the final waiting-time and turnaround-time summary and verified several calculations manually using the formula Turnaround Time = Waiting Time + Burst Time. Finally, I compiled the program using `javac SchedulerSimulation.java` and confirmed that it compiled without errors.
 
-**Challenges**:
+**Challenges**: The main part of today's testing was making sure that the new features worked together without changing the original scheduling behavior.
 
-**Solution**:
+**Solution**: I compared the ready queue order with the generated priorities, checked a process that required multiple CPU turns, and verified values in the final timing table. I also used `git status` after testing to confirm that no accidental code changes had been made during the review.
 
-**Time spent**:
+**Time spent**: 1 hour
 
 ---
 
