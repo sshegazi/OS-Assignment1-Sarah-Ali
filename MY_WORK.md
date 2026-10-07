@@ -221,13 +221,13 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: 6 hours
 
-**Most challenging part**:
+**Most challenging part**: Understanding the scheduler concept itself before coding, then specifically the waiting-time tracking because processes can enter the ready queue several times and each waiting period has to be added correctly.
 
-**Most interesting learning**:
+**Most interesting learning**: Seeing how threads can actually be controlled in an organized way using Thread.start(), Thread.join(), the time quantum, and the FIFO ready queue.
 
-**What I would do differently next time**:
+**What I would do differently next time**: Next time, I would spend more time understanding the full logic of the program before starting to make changes, because once I understood how the scheduler worked, the coding became much easier. I would also check the Git diff before every commit from the beginning so I can catch unnecessary changes early.
 
 ---
 
@@ -247,7 +247,7 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+I learned that the Process class in this project simulates an OS process while the Thread is what executes the simulated process. The start() method is responsible for starting the thread. The join() method’s makes the main thread enter a waiting state until the current thread finishes. The ready queue keeps the FIFO order while every process takes a limited time determined by the time quantum and if the time wasn’t enough for the process to complete then it’d get placed back at the end of the queue. This assignment has helped me understand how threads can be properly organized under a clean system and beside that it’s not always a completely out of the order of process. 
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -255,7 +255,7 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+the most challenging part was wrapping my head around the idea and researching more about it. I wanted to make sure I understood how to approach the code correctly. I also wanted a clearer understanding of what was being asked from me, how it could be done, and what it means in an OS. Once I got that covered to some extent however the real challenge was the waiting time tracking. A longer process can enter the ready queue many times, so I had to keep tracking separate waiting periods instead of measuring it only one time. I also had to examine each change to make sure the waiting time was being added correctly without affecting the original Round Robin scheduling.
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -263,7 +263,7 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+The main problem solving approach I used was breaking the problem into smaller sub problems instead of trying to solve everything at once, which made what seemed impossible less intimidating. After that, I tried to fill the gaps in my understanding by researching and diving deeper into the concepts until the scheduler logic made more sense to me. Testing each feature separately multiple times before moving forward helped me detect issues early and prevented simple mistakes from snowballing. For the waiting-time feature, I tracked when a process entered the queue and updated its waiting time before it ran. I also checked the final numbers manually to make sure the turnaround time matched waiting time + burst time. Finally, I checked that FIFO Round Robin still worked after every change so I could make sure my additions had not affected the original scheduling behavior
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -271,7 +271,7 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+Web browsers can use multithreading to keep the interface responsive and prevent the screen from freezing while loading pages or downloading files, which gives users a much smoother experience and makes the system feel all less laggy. its also pretty useful in the network department because servers can use it to handle requests from multiple users at the same time instead of each request waiting for the previous one to finish. additionally in video games, especially large interactive worlds, threads can be used for separate tasks such as graphics, sounds and background etc processes so that everything can happen together more smoothly and at perfect sync. more simply and obvious our everyday mobile devices, apps can run background jobs without freezing the main interface.
 
 ### Optional: What would you like to learn more about?
 
