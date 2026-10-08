@@ -39,7 +39,7 @@
 
 ## 🎥 Video Link
 
-**Video Link**: [Paste your video link here]
+**Video Link**: https://youtu.be/rBqE4Moo1u8?si=qFVE7Ktb5aZLMSRu
 
 > ⚠️ **WARNING:** The video must be **publicly accessible** ("Anyone with the link can view") on **Google Drive**, **YouTube (Unlisted or Public)** or any other cloud file-sharing system. A private, restricted or broken link counts as a **missing video (-1 mark)**.
 >
@@ -204,16 +204,8 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 ---
 
-### Entry 6 - [Optional - Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 6 - (Not used)
+Five development log entries were completed across separate work sessions, so no sixth entry was needed.
 
 ---
 
@@ -247,7 +239,7 @@ I kept the existing LinkedList ready queue and did not use the priority value fo
 
 **Your Answer:** *(5-7 sentences)*
 
-I learned that the Process class in this project simulates an OS process while the Thread is what executes the simulated process. The start() method is responsible for starting the thread. The join() method’s makes the main thread enter a waiting state until the current thread finishes. The ready queue keeps the FIFO order while every process takes a limited time determined by the time quantum and if the time wasn’t enough for the process to complete then it’d get placed back at the end of the queue. This assignment has helped me understand how threads can be properly organized under a clean system and beside that it’s not always a completely out of the order of process. 
+I learned that the Process class in this project simulates an OS process and implements Runnable, while the Thread is what executes the simulated process. The start() method is responsible for starting the thread. The join() method makes the main thread enter a waiting state until the current thread finishes, while Thread.sleep() is used inside run() to simulate the work being done during the time quantum. The ready queue keeps the FIFO order while every process gets a limited amount of time, and if that time is not enough it gets placed back at the end of the queue. This assignment helped me understand how threads can be organized under a controlled system instead of everything happening completely out of order.
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -275,15 +267,15 @@ Web browsers can use multithreading to keep the interface responsive and prevent
 
 ### Optional: What would you like to learn more about?
 
-[Any topics related to threading or operating systems that you're curious about?]
+At the moment, there is nothing specific I have in mind that I want to learn more about.
 
 ### Optional: How confident do you feel about multithreading concepts now?
 
-[Beginner / Intermediate / Confident. What do you understand well? What needs more practice?]
+I feel more confident about multithreading than I did before this assignment. I understand the main concepts better now, but I still need more practice with the equations and calculations related to scheduling.
 
 ### Optional: Feedback on the assignment
 
-[Any comments? Was it helpful? Too easy or hard? Suggestions?]
+I found the assignment very difficult and stressful, probably more than anything I have done at university before. It was also very time-consuming, but it forced me to understand the concepts in more depth instead of just reading about them.
 
 ---
 
