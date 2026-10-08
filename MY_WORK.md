@@ -271,7 +271,7 @@ The main problem solving approach I used was breaking the problem into smaller s
 
 **Your Answer:** *(5-7 sentences)*
 
-Web browsers can use multithreading to keep the interface responsive and prevent the screen from freezing while loading pages or downloading files, which gives users a much smoother experience and makes the system feel all less laggy. its also pretty useful in the network department because servers can use it to handle requests from multiple users at the same time instead of each request waiting for the previous one to finish. additionally in video games, especially large interactive worlds, threads can be used for separate tasks such as graphics, sounds and background etc processes so that everything can happen together more smoothly and at perfect sync. more simply and obvious our everyday mobile devices, apps can run background jobs without freezing the main interface.
+Web browsers can use multithreading to keep the interface responsive and prevent the screen from freezing while loading pages or downloading files, which gives users a much smoother experience and makes the system feel all less laggy. its also pretty useful in the network department because servers can use it to handle requests from multiple users at the same time instead of each request waiting for the previous one to finish. additionally in video games, especially large interactive worlds, threads can be used for separate tasks such as graphics, sounds and background etc processes so that everything can happen together more smoothly and at perfect sync. more simply and obvious our everyday mobile devices, apps can run background jobs without freezing the main interface. This connects to what I built in this assignment because the scheduler also organizes different threads and gives each one its turn to run instead of allowing one task to control everything.
 
 ### Optional: What would you like to learn more about?
 
@@ -303,7 +303,7 @@ Web browsers can use multithreading to keep the interface responsive and prevent
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+The Process class in this project simulates an operating system process, while the Java Thread is what executes the process code. Processes typically have their own memory space and resource allocation however threads within a single process share the same memory space and resources. Threads are also much less expensive and quicker to create and switch between than full processes. In my code, new Thread(process) links the simulated Process object to a real Java thread so that it can be run by the scheduler.
 
 ## Question 2: Ready Queue Behavior
 
@@ -315,15 +315,27 @@ Web browsers can use multithreading to keep the interface responsive and prevent
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+In my program, P6 had a burst time of 9564 ms while the time quantum was 4000 ms. Since it could not finish within one time quantum, it was placed back at the end of the ready queue after its first turn and then re-queued again after its second turn. P6 was re-queued two times before it finally finished the remaining 1564 ms on its third CPU turn. Re-queueing is important for fairness because it prevents one long process from keeping the CPU for too long and gives the other processes a chance to run.
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+P6 executing quantum [4000ms]
+Remaining time: 5564ms
+P6 yields CPU for context switch
+P6 added to ready queue
+
+P6 executing quantum [4000ms]
+Remaining time: 1564ms
+P6 yields CPU for context switch
+P6 added to ready queue
+
+P6 executing quantum [1564ms]
+Remaining time: 0ms
+P6 finished execution!
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+The output shows that P6 needed three CPU turns to finish because its burst time was larger than two time quanta. After each of the first two 4000 ms turns, the process still had remaining time, so it was moved back to the end of the FIFO ready queue. On its third turn, it only needed 1564 ms and then completed.
 
 ## Question 3: Thread Lifecycle
 
@@ -333,15 +345,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: P1 is in the New state when `new Thread(process)` creates its Java thread inside `addProcessToQueue()`, before the thread has started.
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**:  P1 becomes Runnable when the scheduler calls `currentThread.start()`, which makes the thread ready for the JVM to schedule.
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: P1 is Running when the JVM gives it CPU time and its `run()` method begins executing the current time quantum.
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: While P1 is executing, `Thread.sleep(stepTime)` temporarily puts P1's thread into a timed waiting state, while `currentThread.join()` makes the main scheduler thread wait until P1's current thread finishes.
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: P1's current Java thread becomes Terminated when its `run()` method finishes; if the simulated P1 process still has remaining time, the program later creates a new Java `Thread` for the same `Process` object when it is re-queued.
 
 ## Question 4: Real-World Applications
 
@@ -351,32 +363,32 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): CPU Scheduling Between Running Programs
 
 **Description**:
-[Describe the real-world scenario.]
+In an operating system, several programs and threads may be ready to use the CPU at the same time. Each running program or thread plays the role of a process in my simulation, while the CPU time slice acts like the time quantum. When the operating system stops one task and gives the CPU to another, that is similar to the context switch in my scheduler.
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+Round-Robin works well because it prevents one program from keeping the CPU for too long. By giving every runnable task a turn, the system stays fair and responsive, especially when several applications are open at the same time. This is similar to my simulation where an unfinished process is moved to the back of the ready queue so other processes can run.
 
-### Example 2: [Name of application/scenario]
+### Example 2: Web Server Handling Multiple User Requests
 
 **Description**:
-[Describe the real-world scenario or application.]
+A web server may have many request-handling threads working for different users at the same time. Each request thread can be compared to a process in my simulation, while a limited amount of processing time can act like the time quantum. Moving CPU attention from one request thread to another is similar to a context switch.
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+Round-Robin can help keep the server fair by preventing one large request from taking all the processing time while smaller requests are waiting. It also improves responsiveness because every active request gets regular opportunities to run. This is similar to how my ready queue keeps rotating unfinished processes until all of them complete.
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1. The difference between a simulated OS process and a real Java thread, and how `new Thread(process)` connects the two.
+2. How Round-Robin scheduling uses a FIFO ready queue and a time quantum to give processes fair access to the CPU.
+3. How threads move through different lifecycle states and how methods like `start()`, `sleep()`, and `join()` affect those states.
 
 **Concepts I need to study more:**
-1.
-2.
+1. How real operating systems perform context switching and CPU scheduling internally.
+2. Thread synchronization and how problems such as race conditions can happen when multiple threads share data.
 
 ---
 
